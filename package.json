@@ -4,11 +4,10 @@
   "description": "Fast 2D Poisson Disk Sampling based on a modified Bridson algorithm",
   "main": "src/fast-poisson-disk-sampling.js",
   "scripts": {
-    "build": "browserify src/fast-poisson-disk-sampling.js --s FastPoissonDiskSampling > build/fast-poisson-disk-sampling.js",
-    "build-min": "browserify src/fast-poisson-disk-sampling.js --s FastPoissonDiskSampling | terser --ecma 5 > build/fast-poisson-disk-sampling.min.js",
-    "test": "mocha test/",
-    "eyeball": "node eyeball.js > test.png && open test.png",
-    "benchmark": "node benchmark.js"
+    "prebuild": "rimraf ./build",
+    "build": "tsc && tsc -P tsconfig.declaration.json",
+    "prepare": "npm run build",
+    "test": "jest --silent=false --verbose false"
   },
   "files": [
     "src/fast-poisson-disk-sampling.js",
@@ -32,12 +31,13 @@
     "url": "https://github.com/kchapelier/fast-2d-poisson-disk-sampling/issues"
   },
   "homepage": "https://github.com/kchapelier/fast-2d-poisson-disk-sampling",
-  "dependencies": {},
   "devDependencies": {
+    "@types/node": "^18.11.18",
     "browserify": "^17.0.0",
     "chai": "~4.3.6",
     "mocha": "~10.0.0",
     "pngjs-nozlib": "~1.0.0",
-    "terser": "^5.13.1"
+    "terser": "^5.13.1",
+    "ts-node": "^10.9.1"
   }
 }
