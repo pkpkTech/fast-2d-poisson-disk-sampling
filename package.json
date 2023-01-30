@@ -2,7 +2,8 @@
   "name": "fast-2d-poisson-disk-sampling",
   "version": "1.0.3",
   "description": "Fast 2D Poisson Disk Sampling based on a modified Bridson algorithm",
-  "main": "src/fast-poisson-disk-sampling.js",
+  "main": ".build/fast-poisson-disk-sampling.js",
+  "types": "./build/fast-poisson-disk-sampling.d.ts",
   "scripts": {
     "prebuild": "rimraf ./build",
     "build": "tsc && tsc -P tsconfig.declaration.json",
@@ -10,8 +11,7 @@
     "test": "jest --silent=false --verbose false"
   },
   "files": [
-    "src/fast-poisson-disk-sampling.js",
-    "src/tiny-ndarray.js"
+    "build"
   ],
   "repository": {
     "type": "git",
