@@ -32,7 +32,6 @@
   },
   "homepage": "https://github.com/kchapelier/fast-2d-poisson-disk-sampling",
   "devDependencies": {
-    "@types/node": "^18.11.18",
     "browserify": "^17.0.0",
     "chai": "~4.3.6",
     "mocha": "~10.0.0",

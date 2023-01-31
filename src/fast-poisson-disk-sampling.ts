@@ -136,11 +136,11 @@ export class FastPoissonDiskSampling {
      * @protected
      */
     directAddPoint(point: Point): Coords {
-        var coordsOnly: Coords = { x: point.x, y: point.y };
+        const coordsOnly: Coords = { x: point.x, y: point.y };
         this.processList.push(point);
         this.samplePoints.push(coordsOnly);
 
-        var internalArrayIndex = ((point.x / this.cellSize) | 0) * this.grid.strideX + ((point.y / this.cellSize) | 0);
+        const internalArrayIndex = ((point.x / this.cellSize) | 0) * this.grid.strideX + ((point.y / this.cellSize) | 0);
 
         this.grid.data[internalArrayIndex] = this.samplePoints.length; // store the point reference
 
@@ -154,12 +154,12 @@ export class FastPoissonDiskSampling {
      * @protected
      */
     inNeighbourhood(point: Point): boolean {
-        var strideX = this.grid.strideX,
+        const strideX = this.grid.strideX,
             boundX = this.gridShape.width,
             boundY = this.gridShape.height,
             cellX = point.x / this.cellSize | 0,
-            cellY = point.y / this.cellSize | 0,
-            neighbourIndex,
+            cellY = point.y / this.cellSize | 0;
+        let neighbourIndex,
             internalArrayIndex,
             currentDimensionX,
             currentDimensionY,
@@ -192,13 +192,13 @@ export class FastPoissonDiskSampling {
      * @returns {Array|null} The added point or null
      */
     next() {
-        var tries,
+        let tries,
             currentPoint,
             currentAngle,
             newPoint;
 
         while (this.processList.length > 0) {
-            var index = this.processList.length * this.rng() | 0;
+            const index = this.processList.length * this.rng() | 0;
 
             currentPoint = this.processList[index];
             currentAngle = currentPoint.angle!;
@@ -267,11 +267,10 @@ export class FastPoissonDiskSampling {
      * Reinitialize the grid as well as the internal state
      */
     reset() {
-        var gridData = this.grid.data,
-            i;
+        const gridData = this.grid.data;
 
         // reset the cache grid
-        for (i = 0; i < gridData.length; i++) {
+        for (let i = 0; i < gridData.length; i++) {
             gridData[i] = 0;
         }
 
