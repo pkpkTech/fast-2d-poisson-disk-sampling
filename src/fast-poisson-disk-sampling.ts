@@ -1,4 +1,4 @@
-import { TinyNDArrayOfInteger } from "./tiny-ndarray";
+import { TinyNDArrayOfInteger } from "./index";
 
 const piDiv3 = Math.PI / 3;
 

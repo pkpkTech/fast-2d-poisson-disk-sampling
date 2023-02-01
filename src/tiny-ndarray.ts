@@ -1,4 +1,4 @@
-import { Rect } from "./fast-poisson-disk-sampling";
+import { Rect } from "./index";
 
 export class TinyNDArrayOfInteger {
     strideX: number;
